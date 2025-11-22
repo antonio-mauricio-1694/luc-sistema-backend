@@ -1,0 +1,26 @@
+package br.com.lucsistema.enums;
+
+public enum TipoEndereco {
+	
+	COBRANCA("cobrança"),
+	ENTREGA("entrega");
+	private String descricao;
+	
+	
+    private TipoEndereco(String descricao) {
+		// TODO Auto-generated constructor stub
+    	this.descricao = descricao;
+	}
+    
+    public String getDescricao() {
+		return descricao;
+	}
+    
+    @Override
+    public String toString() {
+    	// TODO Auto-generated method stub
+    	return this.descricao;
+    }
+}
+
+
