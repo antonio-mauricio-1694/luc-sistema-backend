@@ -1,16 +1,17 @@
 package br.com.lucsistema.enums;
 
-public enum StatusContaApagar {
+public enum StatusContaPagar {
 	
 	
 	COBRANCA("pagar"),
 	VENCIDA("vencida"),
 	ABERTA("aberta"),
-	QUITADA("quitada");
+	QUITADA("quitada"),
+	NEGOCIADA("renegociada");
 	
 	private String descricao;
 	
-	private StatusContaApagar( String descricao) {
+	private StatusContaPagar( String descricao) {
 		this.descricao = descricao;
 		
 	}
