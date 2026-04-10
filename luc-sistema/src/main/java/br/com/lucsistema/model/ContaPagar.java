@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import br.com.lucsistema.enums.StatusContaPagar;
 import br.com.lucsistema.enums.StatusContaREceber;
+import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -23,7 +24,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "conta_rpagar")
+@Table(name = "conta_pagar")
 @SequenceGenerator(name = "seq_conta_pagar", sequenceName = "seq_conta_pagar", allocationSize = 1, initialValue = 1)
 public class ContaPagar implements Serializable {
 
@@ -32,15 +33,21 @@ public class ContaPagar implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_conta_pagar")
 	private Long id;
-
+ 
+	@Column(nullable = false)
 	private String descricao;
 	@Enumerated(EnumType.STRING)
 	private StatusContaPagar status;
 	@Temporal(TemporalType.DATE)
 	private Date dataVencimento;
 	@Temporal(TemporalType.DATE)
+	
 	private Date dataPagamento;
+	
+	@Column(nullable = false)
 	private BigDecimal valorTotal;
+	
+	@Column(nullable = false)
 	private BigDecimal valorDesconto;
 
 	@ManyToOne(targetEntity = Pessoa.class)

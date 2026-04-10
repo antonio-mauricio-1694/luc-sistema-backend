@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -20,23 +21,34 @@ import jakarta.persistence.TemporalType;
 
 
 @Entity
-@Table(name = "nota-fiscal-compra")
-@SequenceGenerator(name = "seq_nota-fiscal-compra", sequenceName = "seq_nota-fiscal-compra", allocationSize = 1, initialValue = 1)
+@Table(name = "nota_fiscal_compra")
+@SequenceGenerator(name = "seq_nota_fiscal_compra", sequenceName = "seq_nota_fiscal_compra", allocationSize = 1, initialValue = 1)
 public class NotaFiscalCompra implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_nota-fiscal-compra")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_nota_fiscal_compra")
 	private Long id;
 	
+	@Column(nullable = false)
 	private String numeroDaNota;
+	
+	@Column(nullable = false)
 	private String serieNota;
+	
+	
 	private String descricaoObservacao;
+	
+	@Column(nullable = false)
 	private BigDecimal valorTotal;
+	
 	private BigDecimal valorDesconto;
+	
+	@Column(nullable = false)
 	private BigDecimal valorIcms;
 	
+	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date dataCompra;
 	

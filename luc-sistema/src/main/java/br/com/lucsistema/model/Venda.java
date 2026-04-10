@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ForeignKey;
@@ -47,8 +48,9 @@ public class Venda  implements Serializable{
 	@JoinColumn(name = "endereco_cobranca_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "endereco_cobranca_fk"))
 	private Endereco enderecoCobranca;
 	
-	
+	@Column(nullable = false)
 	private BigDecimal valorTotal;
+	
 	private BigDecimal valorDesconto;
 	
 	
@@ -63,14 +65,17 @@ public class Venda  implements Serializable{
 	
 	
 	@ManyToOne
-	@JoinColumn(name = "cupom_desconto_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "cupom_desconto_fk"))
+	@JoinColumn(name = "cupom_desconto_id",  foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "cupom_desconto_fk"))
 	private CupomDesconto cupomDesconto;
 	
+	@Column(nullable = false)
 	private BigDecimal valorFrete;
 	
+	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date diaEntrega;
 	
+	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date dataEntrga;
 

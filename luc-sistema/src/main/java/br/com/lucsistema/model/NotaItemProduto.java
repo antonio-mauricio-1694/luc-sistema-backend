@@ -17,8 +17,8 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "nota-item-produto")
-@SequenceGenerator(name = "seq_nota-item-produto", sequenceName = "seq_nota-item-produto", allocationSize = 1, initialValue = 1)
+@Table(name = "nota_item_produto")
+@SequenceGenerator(name = "seq_nota_item_produto", sequenceName = "seq_nota_item_produto", allocationSize = 1, initialValue = 1)
 
 
 public class NotaItemProduto implements Serializable {
@@ -26,7 +26,7 @@ public class NotaItemProduto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_nota-item-produto")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_nota_item_produto")
 	private Long id;
 	
 	@Column(nullable = false) // quantidade obrigatoria

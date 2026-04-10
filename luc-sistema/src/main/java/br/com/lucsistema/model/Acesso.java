@@ -3,6 +3,7 @@ import java.util.Objects;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,8 @@ public class Acesso implements GrantedAuthority {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_acesso")
 	private Long id;
+	
+	@Column(nullable = false)
 	private String descricao; // ROLE_ADMIN
 
 	@Override
@@ -32,12 +35,12 @@ public class Acesso implements GrantedAuthority {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getDescricao() {
 		return descricao;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setDescricao(String descricao) {
@@ -60,5 +63,7 @@ public class Acesso implements GrantedAuthority {
 		Acesso other = (Acesso) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	
 
 }
