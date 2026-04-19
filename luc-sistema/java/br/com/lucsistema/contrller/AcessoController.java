@@ -28,4 +28,6 @@ public class AcessoController {
      acessoService.deleteAcesso(id); 
      return ResponseEntity.ok("Deletado com sucesso");
  }
+ 
+ 
 }
